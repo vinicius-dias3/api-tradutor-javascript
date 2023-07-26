@@ -26,14 +26,24 @@ selects.forEach((tag) => {
     };
 });
 
-async function carregarTraducao(){
-    const url = `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
-    const resposta = await fetch(url)
-    const json = await resposta.json()
-    console.log(json)
+function loadTranslation(){
+    fetch{
+        `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
+    }
+        .then((res) => res.json())
+        .then((data) => {
+            textareaTo.value = data.responseData.translatedText;
+    });
 }
 
-carregarTraducao()
+// async function carregarTraducao(){
+//     const url = `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
+//     const resposta = await fetch(url)
+//     const json = await resposta.json()
+//     console.log(json)
+// }
+
+// carregarTraducao()
 
 
 // const arraySelects = Array.from(selects) não sei se vai ser  necessário
