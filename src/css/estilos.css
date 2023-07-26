@@ -1,0 +1,32 @@
+.container{
+    background-color: chocolate;
+    width: 500px;
+}
+
+.container .content{
+    background-color: chartreuse;
+}
+
+.divSelects select{
+    width: 48%;
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0.6);
+    outline: none;
+    padding: 7px;
+}
+
+.container .content .divTextareas{
+    background-color: crimson;
+}
+
+.container .content .divTextareas textarea{
+    width: 48%;
+    resize: none;
+    background-color: hsla(0, 0%, 100%, 0.8);
+    outline: none;
+}
+
+.container .content button:hover{
+    background-color: hsla(0, 0%, 100%, 0.7);
+    cursor: pointer;
+}
