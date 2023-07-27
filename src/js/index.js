@@ -1,6 +1,7 @@
 const textareaFrom = document.querySelector('#textareaFrom')
 const textareaTo = document.querySelector('#textareaTo')
-const btnTranslate = document.querySelector('#btnTranslate')
+const btnAlternarIdiomas = document.querySelector('.btn-alternar-idiomas')
+const btnTraduzir = document.querySelector('.btn-traduzir')
 const selects = document.querySelectorAll('select')
 
 const countries = {
@@ -24,11 +25,21 @@ selects.forEach((tag) => {
     };
 });
 
-btnTranslate.addEventListener('click', () => {
+btnAlternarIdiomas.addEventListener('click', () => {
+    const selectFrom = document.querySelector('.selectFrom')
+    const selectTo = document.querySelector('.selectTo')
+
+    let tempValueFrom = selectFrom.value //ex: pt-br
+    let tempValueTo = selectTo.value // ex: en-gb
+    selectFrom.value = tempValueTo // ex: en-gb
+    selectTo.value = tempValueFrom // ex: pt-br
+})
+
+btnTraduzir.addEventListener('click', () => {
     if(textareaFrom.value){
         carregarTraducao()
     } else{
-        textareaTo.value = '';
+        textareaTo.placeholder = 'escreva alguma coisa antes de clicar no TRADUZIR'; //inserir dentro do placeholder
     };
 });
 

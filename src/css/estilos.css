@@ -32,18 +32,38 @@ body{
     gap: 8px;
 }
 
-.conteudo .selects{
+.conteiner .conteudo .selects{
     display: flex;
     gap: 5px;
+    justify-content: space-around;
 }
 
-.selects select{
-    width: 50%;
+.conteudo .selects select{
+    width: 82%;
     cursor: pointer;
     background-color: hsla(0, 0%, 100%, 0.6);
     border-color: #ddd;
     border-radius: 5px;
     padding: 7px;
+}
+
+.conteudo .selects button.btn-alternar-idiomas{
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #5740a1;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.conteudo .selects button .fa-sync-alt{
+    color: #fff;
+    font-size: 18px;
+    /* position: absolute; */
+    /* font-size: 20px; */
+}
+.conteiner .conteudo .selects button:active .fa-sync-alt{
+    color: #000;
+    /* INSERIR ANIMAÇÃO DE GIRAR ICONE */
 }
 
 .conteiner .conteudo .textareas{
@@ -61,7 +81,7 @@ body{
     outline: none;
 }
 
-.conteiner .conteudo button{
+.conteiner .conteudo button.btn-traduzir{
     padding: 10px;
     border: none;
     background-color: #5740a1;
@@ -71,7 +91,11 @@ body{
     text-transform: uppercase;
 }
 
-.conteiner .conteudo button:hover{
+.conteiner .conteudo button.btn-traduzir:hover{
     opacity: .9;
     cursor: pointer;
+}
+
+.conteiner .conteudo button.btn-traduzir:active{
+    opacity: .8;
 }
