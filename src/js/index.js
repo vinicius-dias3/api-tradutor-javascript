@@ -19,41 +19,23 @@ selects.forEach((tag) => {
         } else if (tag.className.includes('selectTo') && country == 'en-GB'){
             selected = 'selected'
         }
-
-        const option = `<option value=" ${country}" ${selected}>${countries[country]}</option>`
-
+        const option = `<option value="${country}" ${selected}>${countries[country]}</option>`
         tag.insertAdjacentHTML('beforeend', option);
     };
 });
 
 btnTranslate.addEventListener('click', () => {
     if(textareaFrom.value){
-        loadTranslation()
+        carregarTraducao()
     } else{
         textareaTo.value = '';
     };
 });
 
-function loadTranslation(){
-    fetch(
-        `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
-    ).then((res) => res.json()).then((data) => {
-        textareaTo.value = data.responseData.translatedText;
-    });
-};
-
-// console.log(loadTranslation)
-
-// async function carregarTraducao(){
-//     const url = `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
-//     const resposta = await fetch(url)
-//     const json = await resposta.json()
-//     console.log(json)
-// }
-
-// carregarTraducao()
-
-
-// const arraySelects = Array.from(selects) não sei se vai ser  necessário
-// console.log(arraySelects)
-
+async function carregarTraducao(){
+    const resposta = await fetch(`https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`)
+    const json = await resposta.json()
+    if(json.responseData){
+        textareaTo.value = json.responseData.translatedText
+    }
+}

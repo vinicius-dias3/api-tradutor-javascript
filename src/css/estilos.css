@@ -1,32 +1,77 @@
-.container{
-    background-color: chocolate;
-    width: 500px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5740a1;
 }
 
-.container .content{
-    background-color: chartreuse;
+.conteiner{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.divSelects select{
-    width: 48%;
+.conteiner .titulo{
+    color: #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.conteiner .conteudo{
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 7px 5px #0003;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.conteudo .selects{
+    display: flex;
+    gap: 5px;
+}
+
+.selects select{
+    width: 50%;
     cursor: pointer;
     background-color: hsla(0, 0%, 100%, 0.6);
-    outline: none;
+    border-color: #ddd;
+    border-radius: 5px;
     padding: 7px;
 }
 
-.container .content .divTextareas{
-    background-color: crimson;
+.conteiner .conteudo .textareas{
+    display: flex;
+    gap: 5px;
+    border-radius: 5px;
 }
 
-.container .content .divTextareas textarea{
-    width: 48%;
+.conteiner .conteudo .textareas textarea{
+    border-color: #ddd;
+    padding: 5px;
+    width: 50%;
+    border-radius: 5px;
     resize: none;
-    background-color: hsla(0, 0%, 100%, 0.8);
     outline: none;
 }
 
-.container .content button:hover{
-    background-color: hsla(0, 0%, 100%, 0.7);
+.conteiner .conteudo button{
+    padding: 10px;
+    border: none;
+    background-color: #5740a1;
+    color: #FFF;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.conteiner .conteudo button:hover{
+    opacity: .9;
     cursor: pointer;
 }
