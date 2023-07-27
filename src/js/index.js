@@ -8,7 +8,7 @@ const countries = {
     'es-ES': 'Espanhol',
     'it-IT': 'Italiano',
     'ja-JP': 'Japonês',
-    'pt-BR': 'Português Brasil',
+    'pt-BR': 'Português',
 };
 
 selects.forEach((tag) => {
@@ -26,15 +26,23 @@ selects.forEach((tag) => {
     };
 });
 
+btnTranslate.addEventListener('click', () => {
+    if(textareaFrom.value){
+        loadTranslation()
+    } else{
+        textareaTo.value = '';
+    };
+});
+
 function loadTranslation(){
-    fetch{
+    fetch(
         `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
-    }
-        .then((res) => res.json())
-        .then((data) => {
-            textareaTo.value = data.responseData.translatedText;
+    ).then((res) => res.json()).then((data) => {
+        textareaTo.value = data.responseData.translatedText;
     });
-}
+};
+
+// console.log(loadTranslation)
 
 // async function carregarTraducao(){
 //     const url = `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
