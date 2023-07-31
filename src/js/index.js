@@ -1,7 +1,6 @@
 const textareaFrom = document.querySelector('#textareaFrom')
 const textareaTo = document.querySelector('#textareaTo')
 const btnAlternarIdiomas = document.querySelector('.btn-alternar-idiomas')
-const iconeAnimar = btnAlternarIdiomas.querySelector('.fa-sync-alt');
 const btnTraduzir = document.querySelector('.btn-traduzir')
 const selects = document.querySelectorAll('select')
 const countries = {
@@ -25,10 +24,11 @@ selects.forEach((tag) => {
     };
 });
 
-// const iconeAlternar = document.querySelector('.fa-sync-alt')
 btnAlternarIdiomas.addEventListener('click', () => {
-    console.log(iconeAnimar)
-    iconeAnimar.classList.add('animacao')
+    btnAlternarIdiomas.classList.add('ativar-animacao')
+    setTimeout(() => {
+        btnAlternarIdiomas.classList.remove('ativar-animacao')
+    }, 1000)
     
     const selectFrom = document.querySelector('.selectFrom')
     const selectTo = document.querySelector('.selectTo')
@@ -37,17 +37,14 @@ btnAlternarIdiomas.addEventListener('click', () => {
     let tempValueTo = selectTo.value // ex: en-gb
     selectFrom.value = tempValueTo // ex: en-gb
     selectTo.value = tempValueFrom // ex: pt-br
-})
-
-iconeAnimar.addEventListener('animationend', () => {
-    iconeAnimar.classList.remove('animacao')
+    console.log(iconeAnimar)
 })
 
 btnTraduzir.addEventListener('click', () => {
     if(textareaFrom.value){
         carregarTraducao()
     } else{
-        textareaTo.placeholder = 'escreva alguma coisa antes de clicar no TRADUZIR'; //inserir dentro do placeholder
+        textareaTo.value = 'insira ao menos uma palavra antes de clicar no TRADUZIR';
     };
 });
 

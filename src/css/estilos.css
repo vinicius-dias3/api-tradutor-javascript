@@ -47,7 +47,7 @@ body{
     padding: 7px;
 }
 
-.conteudo .selects button.btn-alternar-idiomas{
+.conteudo .selects .btn-alternar-idiomas{
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #5740a1;
@@ -57,36 +57,13 @@ body{
     width: 50px;
 }
 
-.conteudo .selects button.btn-alternar-idiomas .fa-sync-alt{
+.conteudo .selects .btn-alternar-idiomas.ativar-animacao .fa-sync-alt{
+    animation: girar-icone .6s;
     color: #fff;
-    font-size: 18px;
-    position: absolute;
-    top: 7px;
-    left: 6px;
-}
-
-.conteiner .conteudo .selects button.btn-alternar-idiomas:active .fa-sync-alt{
-    font-size: 25px;
-    top: 3px;
-    left: 3px;
-    position: absolute;
-    /* INSERIR ANIMAÇÃO DE GIRAR ICONE */
-}
-
-.animacao{
-    width: 100%;
-    height: 100%;
-    animation: girar-icone 1s forwards;
 }
 
 @keyframes girar-icone{
-    0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(180deg);
-    }
-    100% {
+    to{
         transform: rotate(360deg);
     }
 }
